@@ -50,18 +50,23 @@ const Layout = styled.div`
   justify-content: space-between;
 `
 
-const Header  = styled.h1`
+const Header = styled.h1`
   border: 0;
   font: 0/0 a;
   text-shadow: none;
   color: transparent;
-  width: 91px;
+  width: 70px;
   min-height: 73px;
   height: 73px;
-  margin: 50px auto 0;
+  margin: 20px auto 0;
   background-image: url('/images/icons/logo.svg');
   background-repeat: no-repeat;
   background-size: 100% auto;
+
+  @media (min-width: 768px) {
+    width: 91px;
+    margin-top: 50px;
+  }
 `
 
 const Hero = styled.div`
@@ -73,9 +78,9 @@ const Hero = styled.div`
 `
 
 const Heading = styled.h2`
-  display: block;
-  margin-bottom: 35px;
-  padding: 0;
+  display: inline-block;
+  margin: 0 auto 35px;
+  padding: 0 50px;
   position: relative;
   color: #FFFFFF;
   font-family: 'mohavebold_italic';
@@ -133,9 +138,10 @@ const SubHeading = styled.h3`
 
 const Button = styled.span`
   position: relative;
-  display: block;
-  margin: 0;
-  padding: 23px 43px;
+  display: inline-block;
+  width: 234px;
+  margin: 0 auto;
+  padding: 23px 0;
   border: 2px solid ${props => props.theme.red};
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.16);
@@ -149,7 +155,5 @@ const Button = styled.span`
   cursor: pointer;
 
   @media (min-width: 768px) {
-    display: inline-block;
-    margin: 0 auto;
   }
 `

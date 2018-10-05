@@ -43,18 +43,7 @@ export default class App extends PureComponent {
           images={imagesToPreload}
           render={(props, state) => (
             <LoadingScreen loaded={state.completedPercentage} complete={state.loaded}>
-              {state.loaded && (
-                <Container>
-                  <SplashScreen openModal={this.openModal}>
-                    <SlideShow backgrounds={backgrounds}  paused={modalOpen} />
-                  </SplashScreen>
-
-                {modalOpen && (
-                  <GetUpdatesScreen close={this.closeModal} />
-                )}
-              </Container>
-            )}
-          </LoadingScreen>
+            </LoadingScreen>
         )}
       />
     </ThemeProvider>
@@ -63,3 +52,18 @@ export default class App extends PureComponent {
 }
 
 const Container = styled.div``
+
+/*
+              {state.loaded && (
+                <Container>
+                  <SplashScreen openModal={this.openModal}>
+                    <SlideShow backgrounds={backgrounds}  paused={modalOpen} />
+                  </SplashScreen>
+
+                  {modalOpen && (
+                    <GetUpdatesScreen close={this.closeModal} />
+                  )}
+                </Container>
+              )}
+ *
+ */

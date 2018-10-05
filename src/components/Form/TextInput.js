@@ -92,8 +92,21 @@ export default class TextInput extends PureComponent {
 const Container = styled.div`
   position: relative;
   display: block;
+  margin-bottom: 14px;
   border-radius: 4px;
   background-color: ${props => props.theme.whiteAlt};
+
+  @media (min-width: 728px) {
+    width: calc(50% - 7px);
+  }
+
+  @media (min-width: 1024px) {
+    width: 100%;
+  }
+
+  @media (min-width: 1440px) {
+    width: calc(50% - 7px);
+  }
 `
 
 const Label = styled.label`
