@@ -1,0 +1,26 @@
+{
+  "helmets": {
+    "sm": "/images/backgrounds/Helmets/Mobile.jpg",
+    "md": "/images/backgrounds/Helmets/Tablet.jpg",
+    "lg": "/images/backgrounds/Helmets/Desktop.jpg",
+    "xl": "/images/backgrounds/Helmets/Desktop.jpg"
+  },
+  "people": {
+    "sm": "/images/backgrounds/People/Mobile.jpg",
+    "md": "/images/backgrounds/People/Tablet.jpg",
+    "lg": "/images/backgrounds/People/Desktop.jpg",
+    "xl": "/images/backgrounds/People/Desktop.jpg"
+  },
+  "tents": {
+    "sm": "/images/backgrounds/Tents/Mobile.jpg",
+    "md": "/images/backgrounds/Tents/Tablet.jpg",
+    "lg": "/images/backgrounds/Tents/Desktop.jpg",
+    "xl": "/images/backgrounds/Tents/Desktop.jpg"
+  },
+  "tracks": {
+    "sm": "/images/backgrounds/Tracks/Mobile.jpg",
+    "md": "/images/backgrounds/Tracks/Tablet.jpg",
+    "lg": "/images/backgrounds/Tracks/Desktop.jpg",
+    "xl": "/images/backgrounds/Tracks/Desktop.jpg"
+  }
+}

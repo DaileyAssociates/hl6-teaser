@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="413px" height="219px" viewBox="0 0 413 219" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>logo lockup</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hero-Content-1440" transform="translate(0.000000, -218.000000)" fill="#FFFFFF">
+            <g id="logo-lockup" transform="translate(0.000000, 212.000000)">
+                <text id="life-is-better" font-family="Mohave-BoldItalic, Mohave" font-size="30" font-style="italic" font-weight="bold" letter-spacing="-0.1562498">
+                    <tspan x="135.023749" y="29">LIFE IS BETTER</tspan>
+                </text>
+                <text id="SXS" font-family="Mohave-BoldItalic, Mohave" font-size="220" font-style="italic" font-weight="bold" line-spacing="220" letter-spacing="-8.148144">
+                    <tspan x="63" y="243">SXS</tspan>
+                </text>
+                <g id="Group-2" transform="translate(0.000000, 138.000000)">
+                    <rect id="Rectangle-2" x="370" y="0" width="43" height="2"></rect>
+                    <rect id="Rectangle-2" x="0" y="0" width="43" height="2"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
