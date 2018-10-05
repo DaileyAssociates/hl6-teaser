@@ -30,7 +30,7 @@ export default class SignUp extends PureComponent {
           </Fieldset>
           <Disclaimer>
             <Checkbox type="checkbox" id="checkbox_1" />
-            <label htmlFor="checkbox_1">I want to receive Honda touring emails, and I agree to Honda's <a href="http://powersports.honda.com/privacy.aspx" target="_blank">privacy policy</a></label>
+            <label htmlFor="checkbox_1">I want to receive Honda touring emails, and I agree to Honda's <a href="http://powersports.honda.com/privacy.aspx" target="_blank" rel="noopener noreferrer">privacy policy</a></label>
           </Disclaimer>
           <Button>Send</Button>
         </Form>
@@ -46,16 +46,17 @@ const Container = styled.div`
   left: 0;
   height: 100vh;
   width: 100vw;
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-color: ${props => props.theme.white};
 `
 
 const Form = styled.form`
   position: relative;
-  padding: 60px 28px 0;
+  padding: 60px 28px 20px;
 
   @media (min-width: 768px) {
-    padding: 83px 40px 0;
+    padding: 83px 40px 20px;
   }
 
   @media (min-width: 1024px) {
@@ -172,6 +173,22 @@ const Heading = styled.h2`
     margin-bottom: 30px;
     font-size: 68px;
     line-height: 68px;
+
+    &:after, &:before {
+      width: 43px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 44px;
+
+    &:after, &:before {
+      width: 36px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 75px;
 
     &:after, &:before {
       width: 43px;

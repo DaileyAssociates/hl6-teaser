@@ -1,7 +1,7 @@
 import { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import ImageProgress from 'image-progress'
-import { map, reduce } from 'lodash'
+import { delay, map, reduce } from 'lodash'
 
 export default class LoadImages extends PureComponent {
   static propTypes = {
@@ -16,7 +16,7 @@ export default class LoadImages extends PureComponent {
   }
 
   componentDidMount() {
-    this.loadImages()
+    delay(this.loadImages, 500)
   }
 
   loadImages = () => {

@@ -12,10 +12,10 @@ export default styled.button`
   font-size: 14px;
   text-transform: uppercase;
   cursor: pointer;
-  float: right;
 
   @media (min-width: 768px) {
     width: 240px;
+    float: right;
   }
 
   @media (min-width: 1024px) {

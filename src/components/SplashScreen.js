@@ -1,31 +1,43 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import FooterBase from './Footer'
 
-export default function SplashScreen({ children, openModal }) {
-  return (
-    <Container>
-      <Layout>
-        <Header>
-          Honda Powersports
-        </Header>
-        <Hero>
-          <SubHeading>
-            Life Is Better
-          </SubHeading>
-          <div>
-            <Heading>
-              SXX
-            </Heading>
-          </div>
-          <Button onClick={openModal}>See What's Coming</Button>
-        </Hero>
-        <Footer />
-      </Layout>
-      {children}
-    </Container>
-  )
+export default class SplashScreen extends Component {
+  static propTypes ={
+    openModal: PropTypes.func.isRequired,
+  }
+
+  shouldComponentUpdate() {
+    return false
+  }
+
+  render() {
+    const { openModal } = this.props
+
+    return(
+      <Container>
+        <Layout>
+          <Header>
+            Honda Powersports
+          </Header>
+          <Hero>
+            <SubHeading>
+              Life Is Better
+            </SubHeading>
+            <div>
+              <Heading>
+                SXS
+              </Heading>
+            </div>
+            <Button onClick={openModal}>See What's Coming</Button>
+          </Hero>
+          <Footer />
+        </Layout>
+      </Container>
+    )
+  }
 }
 
 const Container = styled.div`
