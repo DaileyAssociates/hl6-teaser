@@ -1,39 +1,33 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components'
 
-import { validateEmail } from '../helpers/validation'
-import TextInput from './Form/TextInput'
-import Checkbox from './Form/Checkbox'
-import Button from './Form/Button'
+import GetUpdatesForm from './GetUpdatesForm'
+import GetUpdatesThankYou from './GetUpdatesThankYou'
 
-export default class SignUp extends PureComponent {
+export default class SignUp extends Component {
+  state = {
+    sent: false,
+  }
+
+  send = (e) => {
+    this.setState({ sent: true })
+  }
+
   render() {
+    const { sent } = this.state
+
     return (
       <Container>
         <Header>
           <SubHeading>Stay Tuned</SubHeading>
           <Heading>Get Updates</Heading>
         </Header>
-        <Form>
-          <Close onClick={this.props.close}>Close</Close>
-          <Fieldset>
-            <TextInput label="First Name" name="f_name" required />
-            <TextInput label="Last Name" name="l_name" required />
-            <TextInput
-              label="Email"
-              name="email"
-              required
-              validation={validateEmail}
-              validationErrorMessage="Invalid Email"
-            />
-            <TextInput label="Zip Code" name="zip" />
-          </Fieldset>
-          <Disclaimer>
-            <Checkbox type="checkbox" id="checkbox_1" />
-            <label htmlFor="checkbox_1">I want to receive Honda touring emails, and I agree to Honda's <a href="http://powersports.honda.com/privacy.aspx" target="_blank" rel="noopener noreferrer">privacy policy</a></label>
-          </Disclaimer>
-          <Button>Send</Button>
-        </Form>
+        {!sent && (
+          <GetUpdatesForm onSubmit={this.send} />
+        )}
+        {sent && (
+          <GetUpdatesThankYou />
+        )}
       </Container>
     )
   }
@@ -44,76 +38,8 @@ const Container = styled.div`
   z-index: 9;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: ${props => props.theme.white};
-`
-
-const Form = styled.form`
-  position: relative;
-  padding: 60px 28px 20px;
-
-  @media (min-width: 768px) {
-    padding: 83px 40px 20px;
-  }
-
-  @media (min-width: 1024px) {
-    float: right;
-    height: 100vh;
-    width: 50vw;
-    padding: 0 56px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  @media (min-width: 1440px) {}
-`
-
-const Disclaimer = styled.div``
-
-const Fieldset = styled.div`
-  @media (min-width: 768px) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  @media (min-width: 1024px) {
-    display: block;
-  }
-
-  @media (min-width: 1440px) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-`
-
-const Close = styled.span`
-  position: absolute;
-  top: -32px;
-  left: 50%;
-  margin-left: -32px;
-  width: 64px;
-  height: 64px;
-  font: 0/0 a;
-  text-shadow: none;
-  color: transparent;
-  border-radius: 50%;
-  background-color: ${props => props.theme.white};
-  background-image: url('images/icons/close_button.svg');
-  cursor: pointer;
-
-  @media (min-width: 1024px) {
-    top: auto;
-    left: -32px;
-    margin-left: 0;
-  }
 `
 
 const Header = styled.div`
@@ -148,6 +74,7 @@ const Heading = styled.h2`
   font-size: 40px;
   line-height: 48px;
   text-align: center;
+  text-transform: uppercase;
 
   align-self: center;
 
@@ -204,7 +131,7 @@ const SubHeading = styled.h3`
   line-height: 24px;
   letter-spacing: -0.1px;
   text-align: center;
-  text-transorm: uppercase;
+  text-transform: uppercase;
 
   @media (min-width: 768px) {
     font-size: 30px;

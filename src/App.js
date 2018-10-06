@@ -62,18 +62,3 @@ export default class App extends PureComponent {
 }
 
 const Container = styled.div``
-
-/*
-              {state.loaded && (
-                <Container>
-                  <SplashScreen openModal={this.openModal}>
-                    <SlideShow backgrounds={backgrounds}  paused={modalOpen} />
-                  </SplashScreen>
-
-                  {modalOpen && (
-                    <GetUpdatesScreen close={this.closeModal} />
-                  )}
-                </Container>
-              )}
- *
- */

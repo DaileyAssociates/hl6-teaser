@@ -85,7 +85,16 @@ const Hero = styled.div`
   padding: 0 46px 0;
 
   @media (min-width: 768px) {
-    padding: 0 0 150px;
+    // padding: 0 0 150px;
+    padding: 0;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0;
+  }
+
+  @media (min-width: 1440px) {
+
   }
 `
 
