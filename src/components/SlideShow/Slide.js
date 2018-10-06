@@ -73,7 +73,7 @@ const Image = styled.div`
   width: 100vw;
   height: 100vh;
   background-image: url('${props => props.images.sm}');
-  background-size: auto 100%;
+  background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
 
