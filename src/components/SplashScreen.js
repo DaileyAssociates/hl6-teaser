@@ -23,30 +23,21 @@ export default class SplashScreen extends Component {
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
-  // shouldComponentUpdate() {
-  //   return false
-  // }
-
   updateWindowDimensions = () => {
-    console.log('updateWindowDimensions', window.innerHeight)
     const {
       innerWidth: width,
       innerHeight: height,
     } = window
 
-    this.setState({ width, height }, () => {
-      console.log('state: ', this.state)
-    })
+    this.setState({ width, height })
   }
 
   render() {
     const { height } = this.state
     const { openModal } = this.props
 
-    console.log('height: ', height);
-
     return(
-      <Container style={{ height: `${height}px` }}>
+      <Container>
         <Layout>
           <Header>
             Honda Powersports
@@ -72,6 +63,7 @@ export default class SplashScreen extends Component {
 const Container = styled.div`
   position: absolute;
 
+  height: 100%;
   width: 100vw;
   overflow: hidden;
 

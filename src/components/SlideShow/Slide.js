@@ -72,7 +72,7 @@ const Side = styled.div`
 const Image = styled.div`
   display: ${props => props.right ? 'none' : 'block'};
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-image: url('${props => props.images.sm}');
   background-size: cover;
   background-position: center bottom;

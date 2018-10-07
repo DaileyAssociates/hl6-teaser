@@ -16,6 +16,8 @@ import GetUpdatesScreen from './components/GetUpdatesScreen'
 export default class App extends PureComponent {
   state = {
     modalOpen: false,
+    height: 0,
+    width: 0,
   }
 
   openModal = () => {
@@ -26,10 +28,27 @@ export default class App extends PureComponent {
 
   componentDidMount() {
     baseStyles()
+
+    this.updateWindowDimensions();
+
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions = () => {
+    const {
+      innerWidth: width,
+      innerHeight: height,
+    } = window
+
+    this.setState({ width, height })
   }
 
   render() {
-    const { modalOpen } = this.state
+    const { height, modalOpen } = this.state
 
     const imageSize = imageSizeByScreenWidth()
 

@@ -8,7 +8,6 @@ import GetUpdatesThankYou from './GetUpdatesThankYou'
 
 export default class GetUpdatesScreen extends Component {
   static propTypes = {
-    contentHeight: 0,
     close: PropTypes.func.isRequired,
     isOpen: PropTypes.bool.isRequired,
   }
@@ -19,15 +18,8 @@ export default class GetUpdatesScreen extends Component {
   }
 
   componentDidUpdate({ isOpen: wasOpen }) {
-    const { zIndex, contentHeight } = this.state
+    const { zIndex } = this.state
     const { isOpen } = this.props
-
-
-    // const newContentHeight = this.contentEl.clientHeight
-    //
-    // if (contentHeight !== newContentHeight) {
-    //   this.setState({ contentHeight })
-    // }
 
     if (!wasOpen && isOpen) {
       this.show()
@@ -44,7 +36,7 @@ export default class GetUpdatesScreen extends Component {
   }
 
   render() {
-    const { contentHeight, sent, zIndex } = this.state
+    const { sent, zIndex } = this.state
     const { isOpen } = this.props
 
     return (
@@ -78,10 +70,16 @@ const Container = styled.div`
   height: 100%;
   background-color: transparent;
   overflow-y: auto;
+  -webkit-overflow-scrolling: ${props => props.isOpen
+    ? 'touch'
+    : 'auto'
+  };
 
-  display: block;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: 1024px) {
+    display: block;
     overflow-y: hidden;
   }
 `
@@ -131,11 +129,12 @@ const ContentContainer = styled.div`
   background-color: ${props => props.theme.white};
   position: relative;
   transition: bottom .5s ease-in-out;
-
   bottom: ${props => props.isOpen
     ? '0'
     : 'calc(186px - 100vh)'
   };
+
+  flex-grow: 1;
 
   @media (min-width: 768px) {
     height: calc(100vh - 348px);

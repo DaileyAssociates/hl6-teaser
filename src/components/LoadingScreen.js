@@ -94,7 +94,7 @@ const Frame = styled.div`
   position: absolute;
   z-index: 9;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   display: ${props => props.animationComplete
     ? 'none'
@@ -133,7 +133,7 @@ const Frame = styled.div`
 
 const Slide = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,7 +195,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 `
 

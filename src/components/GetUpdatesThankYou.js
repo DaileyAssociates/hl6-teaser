@@ -21,15 +21,7 @@ const Container = styled.div`
     padding-bottom: 20px;
   }
 
-  @media (min-width: 1024px) {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // text-align: center;
-    // width: 100%;
-    // height: 100%;
-  }
-
+  @media (min-width: 1024px) {}
 `
 
 const Heading = styled.h2`

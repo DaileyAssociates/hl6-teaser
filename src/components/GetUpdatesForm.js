@@ -89,12 +89,6 @@ const Form = styled.form`
   padding-top: 60px;
   padding-bottom: 60px;
 
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
   @media (min-width: 768px) {
     padding-top: 83px;
     padding-bottom: 20px;
