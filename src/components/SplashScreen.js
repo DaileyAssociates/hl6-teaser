@@ -9,15 +9,44 @@ export default class SplashScreen extends Component {
     openModal: PropTypes.func.isRequired,
   }
 
-  shouldComponentUpdate() {
-    return false
+  state = {
+    height: 0,
+    width: 0,
+  }
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  // shouldComponentUpdate() {
+  //   return false
+  // }
+
+  updateWindowDimensions = () => {
+    console.log('updateWindowDimensions', window.innerHeight)
+    const {
+      innerWidth: width,
+      innerHeight: height,
+    } = window
+
+    this.setState({ width, height }, () => {
+      console.log('state: ', this.state)
+    })
   }
 
   render() {
+    const { height } = this.state
     const { openModal } = this.props
 
+    console.log('height: ', height);
+
     return(
-      <Container>
+      <Container style={{ height: `${height}px` }}>
         <Layout>
           <Header>
             Honda Powersports
@@ -42,8 +71,13 @@ export default class SplashScreen extends Component {
 
 const Container = styled.div`
   position: absolute;
+
   width: 100vw;
-  height: 100vh;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    height: 100vh;
+  }
 `
 
 const Footer = styled(FooterBase)`
@@ -54,12 +88,16 @@ const Footer = styled(FooterBase)`
 const Layout = styled.div`
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   z-index: 8;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: 768px) {
+    height: 100vh;
+  }
 `
 
 const Header = styled.h1`
@@ -93,9 +131,7 @@ const Hero = styled.div`
     padding: 0;
   }
 
-  @media (min-width: 1440px) {
-
-  }
+  @media (min-width: 1440px) {}
 `
 
 const Heading = styled.h2`

@@ -96,7 +96,7 @@ const Container = styled.div`
   border-radius: 4px;
   background-color: ${props => props.theme.whiteAlt};
 
-  @media (min-width: 728px) {
+  @media (min-width: 768px) {
     width: calc(50% - 7px);
   }
 

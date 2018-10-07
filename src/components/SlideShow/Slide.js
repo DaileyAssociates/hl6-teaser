@@ -28,11 +28,12 @@ const Container = styled.div`
   position: absolute;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   z-index: ${props => (props.slides + 1) - props.position};
 
   @media (min-width: 768px) {
+    height: 100vh;
     z-index: ${props => props.position};
   }
 `

@@ -11,23 +11,25 @@ export default function GetUpdatesThankYou() {
 }
 
 const Container = styled.div`
-  display: flex;
-  height: calc(100vh - 186px);
-  padding: 0 28px;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 60px;
   text-align: center;
 
   @media (min-width: 768px) {
-    height: calc(100vh - 348px);
+    padding-top: 83px;
+    padding-bottom: 20px;
   }
 
   @media (min-width: 1024px) {
-    height: 100vh;
-    width: 50vw;
-    padding: 0 56px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // text-align: center;
+    // width: 100%;
+    // height: 100%;
   }
-  @media (min-width: 1440px) {}
+
 `
 
 const Heading = styled.h2`
