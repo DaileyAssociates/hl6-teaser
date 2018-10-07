@@ -75,7 +75,7 @@ export default class SlideShow extends PureComponent {
 const Container = styled.div`
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 
   @media (min-width: 768px) {
     &:after {

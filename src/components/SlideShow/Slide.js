@@ -41,7 +41,7 @@ const Container = styled.div`
 const Side = styled.div`
   display: ${props => props.right ? 'none' : 'block'};
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   transition: opacity 1.5s ease-in-out;
 

@@ -58,4 +58,6 @@ export default class App extends PureComponent {
   }
 }
 
-const Container = styled.div``
+const Container = styled.div`
+  height: 100%;
+`

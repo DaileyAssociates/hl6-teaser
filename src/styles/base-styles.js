@@ -19,6 +19,10 @@ export default () => injectGlobal`
     line-height: 1em;
   }
 
+  #root {
+    height: 100%;
+  }
+
   h2 {
     font-size: 22px;
   }
