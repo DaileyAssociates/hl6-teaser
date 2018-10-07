@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { delay } from 'lodash'
 
-import { validateEmail } from '../helpers/validation'
+import { validateEmail, validateZipCode } from '../helpers/validation'
 import TextInput from './Form/TextInput'
 import Checkbox from './Form/Checkbox'
 import Button from './Form/Button'
@@ -52,7 +52,13 @@ export default class GetUpdatesForm extends PureComponent {
             validation={validateEmail}
             validationErrorMessage="Invalid Email"
           />
-          <TextInput label="Zip Code" name="zip" />
+          <TextInput
+            label="Zip Code"
+            name="zip"
+            required
+            validation={validateZipCode}
+            validationErrorMessage="Invalid Zip"
+          />
         </Fieldset>
         <Disclaimer>
           <Checkbox type="checkbox" id="checkbox_1" />
