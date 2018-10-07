@@ -14,6 +14,7 @@ export default class GetUpdatesForm extends PureComponent {
   }
 
   state = {
+    disabled: false,
     sending: false,
     sent: false,
   }
@@ -37,6 +38,10 @@ export default class GetUpdatesForm extends PureComponent {
     })
   }
 
+  validate = () => {
+
+  }
+
   render() {
     const { sending, sent } = this.state
 
@@ -51,13 +56,18 @@ export default class GetUpdatesForm extends PureComponent {
             required
             validation={validateEmail}
             validationErrorMessage="Invalid Email"
+            type="email"
           />
           <TextInput
             label="Zip Code"
-            name="zip"
+            name="zipcode"
             required
             validation={validateZipCode}
             validationErrorMessage="Invalid Zip"
+            pattern="[0-9]{5}"
+            testPattern="[0-9]"
+            maxLength="5"
+            minLength="5"
           />
         </Fieldset>
         <Disclaimer>

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { isEmpty } from 'lodash'
+import { get, isEmpty, pickBy, toInteger, toString } from 'lodash'
 
 export default class TextInput extends PureComponent {
   static propTypes = {
@@ -36,14 +36,38 @@ export default class TextInput extends PureComponent {
     }
   })
 
-  onChangeHandler = e => this.setState({ value: e.target.value })
+  onChangeHandler = (e) => {
+    const value = toString(get(e, 'target.value'))
+
+    if (isEmpty(value)) {
+      this.setState({ value })
+      return false
+    }
+
+    const props = this.props
+    const maxLength = toInteger(get(this, 'props.maxLength'))
+    const pattern = get(props, 'testPattern')
+
+    if (maxLength && value.length > maxLength) { return }
+
+    if (pattern) {
+      const reg = new RegExp(pattern)
+
+      if (!reg.test(value)) { return }
+    }
+
+    this.setState({ value })
+  }
 
   onFocusHandler = e => this.setState({ focused: true })
 
   render() {
     const {
-      name,
       label,
+      maxLength,
+      minLength,
+      name,
+      pattern,
       required,
       type,
     } = this.props
@@ -76,6 +100,11 @@ export default class TextInput extends PureComponent {
         </FocusedLabel>
 
         <Input {...{
+          ...pickBy({
+            maxLength,
+            minLength,
+            pattern,
+          }),
           name,
           onBlur: this.onBlurHandler,
           onChange: this.onChangeHandler,
