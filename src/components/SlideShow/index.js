@@ -73,6 +73,21 @@ export default class SlideShow extends PureComponent {
 }
 
 const Container = styled.div`
+  position: relative;
   width: 100vw;
   height: 100vh;
+
+  @media (min-width: 768px) {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      opacity: .5;
+      left: 50vw;
+      z-index: 5;
+      background-color: #3F71AB;
+    }
+  }
 `
