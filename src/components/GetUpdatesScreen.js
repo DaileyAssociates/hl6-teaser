@@ -8,6 +8,7 @@ import GetUpdatesThankYou from './GetUpdatesThankYou'
 
 export default class GetUpdatesScreen extends Component {
   static propTypes = {
+    contentHeight: 0,
     close: PropTypes.func.isRequired,
     isOpen: PropTypes.bool.isRequired,
   }
@@ -18,8 +19,15 @@ export default class GetUpdatesScreen extends Component {
   }
 
   componentDidUpdate({ isOpen: wasOpen }) {
-    const { zIndex } = this.state
+    const { zIndex, contentHeight } = this.state
     const { isOpen } = this.props
+
+
+    // const newContentHeight = this.contentEl.clientHeight
+    //
+    // if (contentHeight !== newContentHeight) {
+    //   this.setState({ contentHeight })
+    // }
 
     if (!wasOpen && isOpen) {
       this.show()
@@ -36,7 +44,7 @@ export default class GetUpdatesScreen extends Component {
   }
 
   render() {
-    const { sent, zIndex } = this.state
+    const { contentHeight, sent, zIndex } = this.state
     const { isOpen } = this.props
 
     return (
@@ -45,7 +53,10 @@ export default class GetUpdatesScreen extends Component {
           <SubHeading>Stay Tuned</SubHeading>
           <Heading>Get Updates</Heading>
         </Header>
-        <ContentContainer isOpen={isOpen}>
+        <ContentContainer
+          isOpen={isOpen}
+          ref={el => this.contentEl = el}
+        >
           <Close onClick={this.props.close} isOpen={isOpen}>Close</Close>
           {!sent && (
             <GetUpdatesForm onSubmit={this.send}  />
@@ -64,6 +75,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   background-color: transparent;
   overflow-y: auto;
 
@@ -115,7 +127,6 @@ const Header = styled.div`
 
 const ContentContainer = styled.div`
   display: flex;
-  height: calc(100vh - 186px);
   padding: 0 28px;
   background-color: ${props => props.theme.white};
   position: relative;
@@ -126,6 +137,9 @@ const ContentContainer = styled.div`
     : 'calc(186px - 100vh)'
   };
 
+  @media (min-width: 768px) {
+    height: calc(100vh - 348px);
+  }
 
   @media (min-width: 1024px) {
     bottom: 0;
