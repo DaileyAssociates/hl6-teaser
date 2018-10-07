@@ -47,3 +47,4 @@ export default styled.button`
   @media (min-width: 1440px) {}
 `
 
+export const Span = styled.span``

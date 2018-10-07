@@ -47,10 +47,7 @@ export default class App extends PureComponent {
                 <Container>
                   <SplashScreen openModal={this.openModal} />
                   <SlideShow backgrounds={backgrounds}  paused={modalOpen} />
-
-                  {modalOpen && (
-                    <GetUpdatesScreen close={this.closeModal} />
-                  )}
+                  <GetUpdatesScreen close={this.closeModal} isOpen={modalOpen} />
                 </Container>
               )}
             </LoadingScreen>
