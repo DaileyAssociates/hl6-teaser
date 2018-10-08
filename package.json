@@ -6,13 +6,16 @@
     "image-progress": "^1.0.3",
     "lodash": "^4.17.11",
     "react": "^16.5.2",
+    "react-app-rewire-styled-components": "^3.0.2",
+    "react-app-rewired": "^1.6.2",
     "react-dom": "^16.5.2",
     "react-scripts": "1.1.5",
     "styled-components": "^3.4.9",
     "styled-reset": "^1.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-app-rewired start",
+    "startr": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
