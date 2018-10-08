@@ -39,7 +39,7 @@ export default class GetUpdatesScreen extends Component {
     const { sent, zIndex } = this.state
     const { isOpen } = this.props
     return (
-      <Container style={{ zIndex }} isOpen={isOpen}>
+      <Container style={{ zIndex }} isOpen={isOpen} sent={sent}>
         <Header isOpen={isOpen}>
           <SubHeading>Stay Tuned</SubHeading>
           <Heading>Get Updates</Heading>
@@ -66,7 +66,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: ${props => props.isOpen ? 'auto' : '100%'};
+  height: ${props => props.isOpen ? (props.sent ? '100%' : 'auto') : '100%'};
   background-color: transparent;
   overflow-y: auto;
   -webkit-overflow-scrolling: ${props => props.isOpen
