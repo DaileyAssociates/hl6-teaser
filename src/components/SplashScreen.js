@@ -33,7 +33,6 @@ export default class SplashScreen extends Component {
   }
 
   render() {
-    const { height } = this.state
     const { openModal } = this.props
 
     return(

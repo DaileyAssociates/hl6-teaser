@@ -75,13 +75,14 @@ class LoadingBarContainer extends PureComponent {
   static propTypes = {
     complete: PropTypes.bool.isRequired,
     loaded: PropTypes.number.isRequired,
+    animationComplete: PropTypes.bool
   }
 
   render() {
-    const { complete, loaded } = this.props
+    const { complete, loaded, animationComplete } = this.props
 
     return (
-      <LoadingBar loaded={loaded} complete={complete}>
+      <LoadingBar loaded={loaded} complete={complete} animationComplete={animationComplete}>
         <LoadingHeadline>
           Loading...
         </LoadingHeadline>
@@ -196,7 +197,6 @@ const Container = styled.div`
   left: 0;
   width: 100vw;
   height: 100%;
-  overflow: hidden;
 `
 
 const LoadingBar = styled.div`
@@ -208,6 +208,7 @@ const LoadingBar = styled.div`
   background-color: ${props => props.theme.white};
   transition: width .5s ease-in-out;
   transition: height .5s ease-in-out .2s;
+  display: ${props => props.animationComplete && 'none'};
 
   @media (min-width: 768px) {
     height: ${props => props.complete ? '0' : '61'}px;

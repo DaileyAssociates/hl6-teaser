@@ -48,7 +48,7 @@ export default class App extends PureComponent {
   }
 
   render() {
-    const { height, modalOpen } = this.state
+    const { modalOpen } = this.state
 
     const imageSize = imageSizeByScreenWidth()
 
