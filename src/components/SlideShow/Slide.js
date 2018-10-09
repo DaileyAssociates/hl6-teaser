@@ -58,7 +58,7 @@ const Side = styled.div`
     left: ${props => props.left ? '0' : 'auto'};
     right: ${props => props.right ? '0' : 'auto'};
 
-    transition: top 1.5s ease-in-out;
+    transition: top .65s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 
     top: ${props => props.currentSlide >= props.position
       ? '0'

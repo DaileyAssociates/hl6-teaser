@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { delay } from 'lodash'
 
 import FooterBase from './Footer'
 
@@ -12,11 +13,16 @@ export default class SplashScreen extends Component {
   state = {
     height: 0,
     width: 0,
+    intro: false,
   }
 
   componentDidMount() {
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
+
+    delay(() => {
+      this.setState({ intro: true })
+    }, 750)
   }
 
   componentWillUnmount() {
@@ -33,21 +39,24 @@ export default class SplashScreen extends Component {
   }
 
   render() {
+    const { intro } = this.state
     const { openModal } = this.props
 
     return(
       <Container>
         <Layout>
-          <Header>
+          <Link intro={intro} href="http://powersports.honda.com">
             Honda Powersports
-          </Header>
+          </Link>
           <Hero>
-            <SubHeading>
+            <SubHeading intro={intro}>
               Life Is Better
             </SubHeading>
             <div>
-              <Heading>
-                SXS
+              <Heading intro={intro}>
+                <span>
+                  SXS
+                </span>
               </Heading>
             </div>
             <Button onClick={openModal}>See What's Coming</Button>
@@ -91,21 +100,41 @@ const Layout = styled.div`
   }
 `
 
-const Header = styled.h1`
+const Header = styled.div`
+  width: 70px;
+  height: 57px;
+
+  @media (min-width: 768px) {
+    width: 90px;
+    height: 74px;
+    margin-top: 50px;
+  }
+`
+
+const Link = styled.a`
+  display: block;
   border: 0;
   font: 0/0 a;
   text-shadow: none;
   color: transparent;
   width: 70px;
-  min-height: 73px;
-  height: 73px;
+  height: 57px;
   margin: 20px auto 0;
+  padding: 0;
   background-image: url('/images/icons/logo.svg');
   background-repeat: no-repeat;
   background-size: 100% auto;
+  transition: transform .65s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+
+  transform: scale(${props => props.intro
+    ? '1'
+    : '0'
+  });
 
   @media (min-width: 768px) {
-    width: 91px;
+    transition-duration: .65s;
+    width: 90px;
+    height: 74px;
     margin-top: 50px;
   }
 `
@@ -114,7 +143,6 @@ const Hero = styled.div`
   padding: 0 46px 0;
 
   @media (min-width: 768px) {
-    // padding: 0 0 150px;
     padding: 0;
   }
 
@@ -127,19 +155,38 @@ const Hero = styled.div`
 
 const Heading = styled.h2`
   display: inline-block;
-  margin: 0 auto 35px;
+  margin: 0 auto 0 -16px;
   padding: 0 50px;
   position: relative;
   color: #FFFFFF;
   font-family: 'mohavebold_italic';
-  font-size: 119px;
+  font-size: 150px;
+  line-height: 150px;
   letter-spacing: -4.41px;
-  line-height: 119px;
   text-align: center;
+
+  span {
+    display: block;
+    transition: all .65s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    opacity: ${props => props.intro
+      ? '1'
+      : '0'
+    };
+
+    transform: scale(${props => props.intro
+      ? '1'
+      : '0'
+    });
+
+    @media (min-width: 768px) {
+      transition-duration: .65s;
+    }
+
+  }
 
   &:after, &:before {
     position: absolute;
-    top: 50%;
+    top: 40%;
     content: '';
     width: 29px;
     height: 2px;
@@ -155,18 +202,19 @@ const Heading = styled.h2`
   }
 
   @media (min-width: 768px) {
+    margin-left: -27px;
     display: inline-block;
     padding: 0 75px;
-    margin-bottom: 30px;
     font-size: 220px;
-    letter-spacing: -8.15px;
     line-height: 220px;
+    letter-spacing: -8.15px;
 
     &:after, &:before {
       width: 43px;
-
     }
   }
+
+  @media (min-width: 1024px) {}
 `
 
 const SubHeading = styled.h3`
@@ -176,9 +224,16 @@ const SubHeading = styled.h3`
   font-size: 18px;
   letter-spacing: -0.09px;
   text-align: center;
-  text-transorm: uppercase;
+  text-transform: uppercase;
+
+  transition: opacity .65s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  opacity: ${props => props.intro
+    ? '1'
+    : '0'
+  };
 
   @media (min-width: 768px) {
+    transition-duration: .65s;
     font-size: 30px;
     letter-spacing: -0.16px;
   }

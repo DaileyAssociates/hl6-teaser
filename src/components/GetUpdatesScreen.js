@@ -35,7 +35,13 @@ export default class GetUpdatesScreen extends Component {
     this.setState({ sent: true })
   }
 
+  scrollToTop = () => {
+    window.scrollTo(0, 0)
+  }
+
   render() {
+    this.scrollToTop()
+
     const { sent, zIndex } = this.state
     const { isOpen } = this.props
     return (
@@ -124,13 +130,13 @@ const Header = styled.div`
 
 const ContentContainer = styled.div`
   display: flex;
-  padding: 0 28px;
+  padding: 0 24px;
   background-color: ${props => props.theme.white};
   position: relative;
   transition: bottom .5s ease-in-out;
   bottom: ${props => props.isOpen
     ? '0'
-    : 'calc(186px - 100vh)'
+    : 'calc(90px - 100vh)'
   };
 
   flex-grow: 1;
@@ -250,6 +256,8 @@ const Heading = styled.h2`
   }
 
   @media (min-width: 1440px) {
+    font-size: 96px;
+    line-height: 96px;
     padding: 0 75px;
 
     &:after, &:before {
@@ -259,7 +267,7 @@ const Heading = styled.h2`
 `
 
 const SubHeading = styled.h3`
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   color: #FFFFFF;
   font-family: 'mohavebold_italic';
   font-size: 20px;
@@ -269,7 +277,13 @@ const SubHeading = styled.h3`
   text-transform: uppercase;
 
   @media (min-width: 768px) {
-    font-size: 30px;
-    letter-spacing: -0.16px;
+    margin-bottom: 10px;
+    font-size: 28px;
+  }
+
+  @media (min-width: 1024px) {
+  }
+
+  @media (min-width: 1440px) {
   }
 `

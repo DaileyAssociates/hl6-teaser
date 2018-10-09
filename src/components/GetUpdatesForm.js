@@ -67,7 +67,7 @@ export default class GetUpdatesForm extends PureComponent {
         </Fieldset>
         <Disclaimer>
           <Checkbox type="checkbox" id="checkbox_1" />
-          <label htmlFor="checkbox_1">I want to receive Honda touring emails, and I agree to Honda's <a href="http://powersports.honda.com/privacy.aspx" target="_blank" rel="noopener noreferrer">privacy policy</a></label>
+          <label htmlFor="checkbox_1">I want to receive Honda SXS emails, and I agree to Honda's <a href="http://powersports.honda.com/privacy.aspx" target="_blank" rel="noopener noreferrer">privacy policy</a></label>
         </Disclaimer>
         <Button sending={sending} sent={sent}>
           <Span sending={sending}>

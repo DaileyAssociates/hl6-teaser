@@ -7,7 +7,7 @@ export default function Footer() {
       <Social>
         <Link icon="instagram" target="_blank" href="https://www.instagram.com/honda_powersports_us/">Instagram</Link>
         <Link icon="youtube" target="_blank" href="https://www.youtube.com/user/HondaPowersportsUS">YouTube</Link>
-        <Link icon="twitter" target="_blank" href="https://twitter.com/RideRedSupport">Twitter</Link>
+        <Link style={{ height: '22px' }} icon="twitter" target="_blank" href="https://twitter.com/HondaPowersprts">Twitter</Link>
         <Link icon="facebook" target="_blank" href="https://www.facebook.com/HondaPowersports">Facebook</Link>
       </Social>
       <Copy>
@@ -18,12 +18,17 @@ export default function Footer() {
 }
 
 const Container = styled.div`
-  padding: 0 40px;
+  padding: 0 24px;
+
+  @media (min-width: 1024px) {
+    padding: 0 40px;
+  }
 `
 
 const Social = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 `
 
 const Link = styled.a`

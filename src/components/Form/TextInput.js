@@ -177,7 +177,7 @@ const FocusedLabel = styled(Label)`
 
   opacity: 0;
 
-  &.focused, &.error {
+  &.focused, &.error, &.filled {
     opacity: 1;
   }
 `

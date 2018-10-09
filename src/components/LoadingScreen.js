@@ -1,4 +1,4 @@
-import React, { Component, Fragment, PureComponent } from 'react'
+import React, { Component, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { delay } from 'lodash'
@@ -24,8 +24,10 @@ export default class LoadingScreen extends PureComponent {
 
     return (
       <Container>
-        <LoadingFrames loaded={loaded} complete={complete} animationComplete={animationComplete} />
-        <LoadingBarContainer loaded={loaded} complete={complete} animationComplete={animationComplete} />
+        <ContentContainer>
+          <LoadingFrames loaded={loaded} complete={complete} animationComplete={animationComplete} />
+          <LoadingBarContainer loaded={loaded} complete={complete} animationComplete={animationComplete} />
+        </ContentContainer>
         {children}
       </Container>
     )
@@ -45,7 +47,7 @@ class LoadingFrames extends Component {
     const { animationComplete, complete } = this.props
 
     return (
-      <Fragment>
+      <FrameContainer>
         <Frame left complete={complete} animationComplete={animationComplete}>
           <Slide>
             <Header>
@@ -66,7 +68,7 @@ class LoadingFrames extends Component {
             </Heading>
           </Slide>
         </Frame>
-      </Fragment>
+      </FrameContainer>
     )
   }
 }
@@ -90,6 +92,24 @@ class LoadingBarContainer extends PureComponent {
     )
   }
 }
+
+const FrameContainer = styled.div`
+  position: relative;
+  width: 100vw;
+  height: 100%;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    opacity: .25;
+    left: 50vw;
+    z-index: 9;
+    background-color: #370809;
+  }
+`
 
 const Frame = styled.div`
   position: absolute;
@@ -177,7 +197,7 @@ const Header = styled.h1`
 
 const Heading = styled.h2`
   display: inline-block;
-  margin: 0;
+  margin: 0 0 0 -16px;
   color: #FFFFFF;
   font-family: 'mohavebold_italic';
   font-size: 119px;
@@ -186,17 +206,28 @@ const Heading = styled.h2`
   text-align: center;
 
   @media (min-width: 768px) {
+    margin-left: -27px;
     font-size: 220px;
     letter-spacing: -8.15px;
     line-height: 220px;
   }
 `
+
 const Container = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100%;
+`
+
+const ContentContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 `
 
 const LoadingBar = styled.div`

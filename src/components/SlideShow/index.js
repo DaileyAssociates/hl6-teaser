@@ -29,10 +29,10 @@ export default class SlideShow extends PureComponent {
     this.setState(({ slide }) => ({
       slide: slide + 1,
     }), () => {
-      const { intervalID, slide, slides } = this.state
+      const { slide, slides } = this.state
 
-      if (slide >= slides) {
-        clearInterval(intervalID)
+      if (slide > slides) {
+        this.setState({ slide: 1 })
       }
     })
   }
@@ -77,17 +77,15 @@ const Container = styled.div`
   width: 100vw;
   height: 100%;
 
-  @media (min-width: 768px) {
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      opacity: .5;
-      left: 50vw;
-      z-index: 5;
-      background-color: #3F71AB;
-    }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    opacity: .25;
+    left: 50vw;
+    z-index: 5;
+    background-color: ${props => props.theme.blue};
   }
 `
