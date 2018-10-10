@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export default function Slide({ currentSlide, images, position, slides, style }) {
+export default function Slide({ currentSlide, prevSlide, nextSlide, images, position, slides, style }) {
   return (
-    <Container {...{ position, slides }}>
-      <Side {...{ currentSlide, left: true, position, slides }}>
+    <Container {...{ currentSlide, position, prevSlide, nextSlide, slides }}>
+      <Side {...{ currentSlide, prevSlide, nextSlide, left: true, position, slides }}>
+        <h1>{position} - {currentSlide}</h1>
         <Image {...{ images, left: true }} />
       </Side>
-      <Side {...{ currentSlide, right: true, position, slides }}>
+      <Side {...{ currentSlide, prevSlide, nextSlide, right: true, position, slides }}>
         <Image {...{ images, right: true }} />
       </Side>
     </Container>
@@ -34,7 +35,12 @@ const Container = styled.div`
 
   @media (min-width: 768px) {
     height: 100vh;
-    z-index: ${props => props.position};
+    z-index: ${({ currentSlide, prevSlide, position }) => position === currentSlide
+      ? '5'
+      : position === prevSlide
+        ? '4'
+        : '3'
+    };
   }
 `
 
@@ -57,14 +63,17 @@ const Side = styled.div`
     opacity: 1;
     left: ${props => props.left ? '0' : 'auto'};
     right: ${props => props.right ? '0' : 'auto'};
-
     transition: top .65s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 
-    top: ${props => props.currentSlide >= props.position
+    top: ${props => props.position === props.currentSlide
       ? '0'
-      : props.left
-        ? '-100vh'
-        : '100vh'
+      : props.position === props.nextSlide
+        ? props.left
+          ? '-100vh'
+          : '100vh'
+        : props.position === props.prevSlide
+          ? '0'
+          : '0'
     };
   }
 `

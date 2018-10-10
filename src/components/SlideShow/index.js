@@ -11,6 +11,8 @@ export default class SlideShow extends PureComponent {
 
   state = {
     interval: 5000,
+    next: 2,
+    prev: 4,
     slide: 1,
     slides: 4,
   }
@@ -26,43 +28,53 @@ export default class SlideShow extends PureComponent {
       return;
     }
 
-    this.setState(({ slide }) => ({
-      slide: slide + 1,
-    }), () => {
-      const { slide, slides } = this.state
-
-      if (slide > slides) {
-        this.setState({ slide: 1 })
+    this.setState(({ next, prev, slide, slides }) => {
+      return {
+        slide: next,
+        next: next < slides
+          ? next + 1
+          : 1,
+        prev: next === 1
+          ? 4
+          : next - 1
       }
     })
   }
 
   render() {
-    const { slide, slides } = this.state;
+    const { next, prev, slide, slides } = this.state;
     const { backgrounds } = this.props
 
     return (
       <Container className="slideshow-container">
         <Slide
           currentSlide={slide}
+          nextSlide={next}
+          prevSlide={prev}
           images={backgrounds.tents}
           position={1}
           slides={slides}
         />
         <Slide
           currentSlide={slide}
+          nextSlide={next}
+          prevSlide={prev}
           images={backgrounds.helmets}
           position={2}
           slides={slides}
         />
         <Slide
           currentSlide={slide}
+          nextSlide={next}
+          prevSlide={prev}
           images={backgrounds.people}
           position={3}
           slides={slides}
         />
         <Slide
           currentSlide={slide}
+          nextSlide={next}
+          prevSlide={prev}
           images={backgrounds.tracks}
           position={4}
           slides={slides}
