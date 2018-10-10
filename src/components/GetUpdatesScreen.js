@@ -198,8 +198,9 @@ const Close = styled.span`
   };
 
   @media (min-width: 1024px) {
-    top: auto;
+    top: 50%;
     left: -32px;
+    margin-top: -32px;
     margin-left: 0;
   }
 `

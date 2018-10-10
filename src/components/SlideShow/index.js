@@ -88,16 +88,4 @@ const Container = styled.div`
   position: relative;
   width: 100vw;
   height: 100%;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    opacity: .25;
-    left: 50vw;
-    z-index: 5;
-    background-color: ${props => props.theme.blue};
-  }
 `
