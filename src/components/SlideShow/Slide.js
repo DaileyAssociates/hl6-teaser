@@ -36,10 +36,10 @@ const Container = styled.div`
   @media (min-width: 768px) {
     height: 100vh;
     z-index: ${({ currentSlide, prevSlide, position }) => position === currentSlide
-      ? '5'
+      ? '3'
       : position === prevSlide
-        ? '4'
-        : '3'
+        ? '2'
+        : '1'
     };
   }
 `
