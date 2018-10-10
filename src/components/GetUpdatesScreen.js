@@ -256,8 +256,8 @@ const Heading = styled.h2`
   }
 
   @media (min-width: 1440px) {
-    font-size: 96px;
-    line-height: 96px;
+    font-size: 98px;
+    line-height: 98px;
     padding: 0 75px;
 
     &:after, &:before {
@@ -278,12 +278,15 @@ const SubHeading = styled.h3`
 
   @media (min-width: 768px) {
     margin-bottom: 10px;
-    font-size: 28px;
+    font-size: 24px;
+    line-height: 24px;
   }
 
   @media (min-width: 1024px) {
   }
 
   @media (min-width: 1440px) {
+    font-size: 28px;
+    line-height: 28px;
   }
 `

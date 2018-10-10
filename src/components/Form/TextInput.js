@@ -194,6 +194,6 @@ const Input = styled.input`
   line-height: 16px;
   border: none;
   font-family: Roboto;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
 `

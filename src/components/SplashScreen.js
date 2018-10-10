@@ -59,7 +59,7 @@ export default class SplashScreen extends Component {
                 </span>
               </Heading>
             </div>
-            <Button onClick={openModal}>See What's Coming</Button>
+            <Button onClick={openModal}>Get Ready. It's Coming.</Button>
           </Hero>
           <Footer />
         </Layout>
@@ -89,7 +89,7 @@ const Layout = styled.div`
   position: absolute;
   width: 100vw;
   height: 100%;
-  z-index: 8;
+  z-index: 9;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -97,17 +97,6 @@ const Layout = styled.div`
 
   @media (min-width: 768px) {
     height: 100vh;
-  }
-`
-
-const Header = styled.div`
-  width: 70px;
-  height: 57px;
-
-  @media (min-width: 768px) {
-    width: 90px;
-    height: 74px;
-    margin-top: 50px;
   }
 `
 
@@ -220,7 +209,7 @@ const Heading = styled.h2`
 const SubHeading = styled.h3`
   margin-bottom: 10px;
   color: #FFFFFF;
-  font-family: 'mohavebold_italic';
+  font-family: 'mohavemedium_italic';
   font-size: 18px;
   letter-spacing: -0.09px;
   text-align: center;

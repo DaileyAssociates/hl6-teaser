@@ -106,14 +106,13 @@ const FrameContainer = styled.div`
     width: 1px;
     opacity: .25;
     left: 50vw;
-    z-index: 9;
+    z-index: 8;
     background-color: #370809;
   }
 `
 
 const Frame = styled.div`
   position: absolute;
-  z-index: 9;
   width: 100vw;
   height: 100%;
   overflow: hidden;
@@ -153,6 +152,7 @@ const Frame = styled.div`
 `
 
 const Slide = styled.div`
+  position: relative;
   width: 100vw;
   height: 100%;
   display: flex;
@@ -160,9 +160,6 @@ const Slide = styled.div`
   justify-content: center;
   flex-direction: column;
   background-color: ${props => props.theme.red};
-  transition: all .5s ease-in-out .5;
-
-  // opacity: ${props => props.complete ? 0 : 1};
 
   @media (min-width: 768px) {
     opacity: 1;
@@ -177,12 +174,12 @@ const Header = styled.h1`
   text-shadow: none;
   color: transparent;
   width: 70px;
-  min-height: 73px;
-  height: 73px;
+  height: 57px;
   margin-top: 20px;
   background-image: url('/images/icons/logo.svg');
   background-repeat: no-repeat;
   background-size: 100% auto;
+  z-index: 9;
 
   position: absolute;
   top: 0;
@@ -190,7 +187,8 @@ const Header = styled.h1`
   transform: translateX(-50%);
 
   @media (min-width: 768px) {
-    width: 91px;
+    width: 90px;
+    height: 74px;
     margin-top: 50px;
   }
 `
@@ -204,6 +202,8 @@ const Heading = styled.h2`
   letter-spacing: -4.41px;
   line-height: 119px;
   text-align: center;
+  position: relative;
+  z-index: 9;
 
   @media (min-width: 768px) {
     margin-left: -27px;

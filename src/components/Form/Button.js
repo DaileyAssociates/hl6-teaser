@@ -4,26 +4,52 @@ export default styled.button`
   display: block;
   width: 100%;
   height: 62px;
-  padding: 17px 100px;
+  padding: 17px 0;
   border: none;
   border-radius: 4px;
-  color: ${props => props.theme.white};
-  font-size: 14px;
   text-transform: uppercase;
   cursor: pointer;
+  font-size: 14px;
+
+  @media (min-width: 768px) {
+    width: auto;
+  }
 
   span {
+    display: block;
     position: relative;
+    height: ${props => props.sent
+      ? '30px'
+      : 'auto'
+    };
+    width: ${props => props.sent
+      ? '30px'
+      : 'auto'
+    };
+    margin: 0 auto;
+    background-image: ${props => props.sent
+      ? `url('/images/icons/checkmark.svg')`
+      : 'none'
+    };
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    color: ${props => props.sent
+      ? 'transparent'
+      : props.theme.white
+    };
+    font: ${props => props.sent
+      ? '0/0 a'
+      : '14px'
+    };
+    text-shadow: none;
 
     &:after {
       display: ${props => props.sending
-        ? 'block'
+        ? 'inline'
         : 'none'
       };
       content: '...';
-      position: absolute;
-      top: 0;
-      right: -12px;
+      position: relative;
     }
   }
 

@@ -11,7 +11,7 @@ export default function Footer() {
         <Link icon="facebook" target="_blank" href="https://www.facebook.com/HondaPowersports">Facebook</Link>
       </Social>
       <Copy>
-        © 2018 American Honda Motor Co., Inc. - Motorcycle Division
+        ©2018 American Honda Motor Co., Inc. - Motorcycle Division
       </Copy>
     </Container>
   )

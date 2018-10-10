@@ -20,9 +20,7 @@ export default class App extends PureComponent {
     width: 0,
   }
 
-  openModal = () => {
-    this.setState({ modalOpen: true })
-  }
+  openModal = () => this.setState({ modalOpen: true })
 
   closeModal = () => this.setState({ modalOpen: false })
 
